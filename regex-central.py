@@ -22,12 +22,20 @@ G = cl.green
 RT = cl.reset
 CR = cl.clear
 
+print(CR,end='')
+
+def flags():
+    print(CR,end='')
+    input('Welcome to Fun with Flags™!')
+    input('Flags are ')
+
 def basic():
     while True:
         print('What do you need to learn about?\n[1] Flags\n[2] Anchors\n[3] Quantifiers\n[4] Groups and Ranges\n[5] Character Classes\n[6] Syntax Charachers\n[7] I would like to go back in time.')
         command = input('>>> ')
         if command == '1' or command == 'a':
             print(CR,end='')
+            flags()
         elif command == '2' or command == 'b':
             print(CR,end='') 
         elif command == '3' or command == 'c':
