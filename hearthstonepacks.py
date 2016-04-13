@@ -259,9 +259,9 @@ while running:
         print('_______________\n_______________\n_______________\n_______________\n_______________\n')
         print(c.base3+'Welcome, what pack do you want to open?\n'+c.orange+'[C] Classic\n'+c.red+'[G] Goblins vs Gnomes\n'+c.magenta+'[T] The Grand Tournament\n' + c.base00 + '[W] Comming soon: Wispers of Old Gods\n' + c.green + '[E] Exit\n'+c.base3+'Anything else put will open a random pack.\n\n')
       else:
-        for order in range(cards_per_pack):
-          print(cards.pop(random.randint(0,cards_per_pack_poploop-order)-1))
-        print()
+          for order in range(cards_per_pack):
+            print(cards.pop(random.randint(0,cards_per_pack_poploop-order)-1))
+          print()
         
       cost = 0
       math_p = total_p
@@ -340,7 +340,6 @@ while running:
         if roll_max < roll_min or roll_max <= 0 or roll_min <= 0 or roll_min >= 2663:
           roll_max = 10000
           roll_min = 1
-        continue
       elif pack == '<>debug reset<>':
         break
       elif pack == 'e':
