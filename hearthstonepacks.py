@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#/usr/bin/env python3
 running = True
 while running:  
   import skilstak.colors as c
