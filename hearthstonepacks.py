@@ -1,4 +1,4 @@
-#/usr/bin/env python3
+#!/usr/bin/env python3
 running = True
 while running:  
   import skilstak.colors as c
@@ -190,7 +190,7 @@ while running:
               
   def prob(commons,golden,stats,cards_per_pack,roll_min,roll_max):
       while True:
-          rare_roll = random.randint(roll_min,roll_max) # Default: 1,10000 change for fun ;)
+          rare_roll = random.randint(roll_min,roll_max)
           if rare_roll >= 1 and rare_roll <= 94: 
               if rare_roll >= 1 and rare_roll <= 7:
                 golden = c.yellow + 'Golden '
@@ -259,10 +259,10 @@ while running:
         print('_______________\n_______________\n_______________\n_______________\n_______________\n')
         print(c.base3+'Welcome, what pack do you want to open?\n'+c.orange+'[C] Classic\n'+c.red+'[G] Goblins vs Gnomes\n'+c.magenta+'[T] The Grand Tournament\n' + c.base00 + '[W] Comming soon: Wispers of Old Gods\n' + c.green + '[E] Exit\n'+c.base3+'Anything else put will open a random pack.\n\n')
       else:
-          for order in range(cards_per_pack):
-            print(cards.pop(random.randint(0,cards_per_pack_poploop-order)-1))
-          print()
-        
+        for order in range(cards_per_pack):
+          print(cards.pop(random.randint(0,cards_per_pack_poploop-order)-1))
+        print()
+      first_time = True
       cost = 0
       math_p = total_p
       while True:
@@ -278,6 +278,7 @@ while running:
           elif math_p >= 7:
               math_p -= 7
               cost += 10
+
           elif math_p >= 2:
               math_p -= 2
               cost += 3
@@ -320,7 +321,10 @@ while running:
           print()
           print(c.orange + 'Total Packs:        ' + str(total_p) + '  (Total Cards: ' + str(total_c) + ')')
           print(c.green + 'Total Money Spent: ' + '$' + str(cost))
-          print(c.cyan + 'Total Dust: ' + str(dust))
+          if cost == 0:
+            print(c.cyan + 'Total Dust: 0/$ (' + str(dust) + ' Total)')
+          else:
+            print(c.cyan + 'Total Dust: ' + str(round(dust/cost)) + '/$ (' + str(dust) + ' Total)')
         countstat += 1
       print()
       if auto_left >= 1:
@@ -340,6 +344,7 @@ while running:
         if roll_max < roll_min or roll_max <= 0 or roll_min <= 0 or roll_min >= 2663:
           roll_max = 10000
           roll_min = 1
+        continue
       elif pack == '<>debug reset<>':
         break
       elif pack == 'e':
