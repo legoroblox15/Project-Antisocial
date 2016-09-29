@@ -27,7 +27,7 @@ try:
       gnomes_l = ["Blingtron 3000", "Bolvar Fordragon", "Dr. Boom", "Flame Leviathan", "Foe Reaper 4000", "Gahz'rilla", "Gazlowe", "Hemet Nesingwary", "Iron Juggernaut", "Mal'Ganis", "Malorne", "Mekgineer Thermaplugg", "Mimiron's Head", "Mogor the Ogre", "Neptulon", "Sneed's Old Shredder", "Toshley", "Trade Prince Gallywix", "Troggzor the Earthinator", "Vol'jin"]
       gnomes_e = ["Ancestor's Call", "Anima Golem", "Bouncing Blade", "Clockwork Giant", "Coghammer", "Cogmaster's Wrench", "Crush", "Dark Wispers", "Demonheart", "Echo of Medivh", "Enhance-o Mechano", "Feign Death", "Fel Reaver", "Hobgoblin", "Junkbot", "Lightbomb", "Mini-Mage", "Piloted Sky Golem", "Quartermaster", "Recombobulator", "Sabotage", "Shadowbomber", "Siltfin Spiritwalker", "Steamwheedle Sniper", "Tree of Life", "Wee Spellstopper"]
       gnomes_r = ["Arcane Nullifier", "Bomb Lobber", "Call Pet", "Cobalt Guardian", "Dunemaul Shaman", "Fel Cannon", "Gnomish Experimenter", "Goblin Blastmage", "Goblin Sapper", "Grove Tender", "Illuminator", "Imp-losion", "Iron Sensei", "Jeeves", "Kezan Mystic", "King of Beasts", "Light of the Naaru", "Lil' Exorcist", "Madder Bomber", "Mech-Bear-Cat", "Metaltooth Leaper", "Mistress of Pain", "Muster for Battle", "Ogre Ninja", "One-eyed Cheat", "Powermace", "Recycle", "Scarlet", "Screwjank", "Shadowboxer", "Shieldmaiden", "Siege Engine", "Soot Spewer", "Target Dummy", "Unstable Portal", "Upgraded Repair Bot", "Vitality Totem"]
-      gnomes_c =["Annoy-o-Tron", "Anodized Robo Cub", "Antique Healbot", "Burly Rocw Trogg", "Clockwork Gnome", "Cobra Shot", "Cogmaster", "Crackle", "Darkbomb", "Druid of the Fang", "Explosive Sheep", "Flamecannon", "Floating Watcher", "Flying Machine", "Force-Tank MAX", "Gilblin Stalker", "Glaivezooka", "Gnomeregan Infantry", "Goblin Auto-Barber", "Lost Tallstrider", "Mechanical Yeti", "Mechwarper", "Micro Machine", "Ogre Brute", "Ogre Warmaul", "Piloted Shredder", "Puddlestomper", "Salty Dog", "Seal of Light", "Shielded Minibot", "Ship's Cannon", "Shrinkmeister", "Snowchugger", "Spider Tank", "Stonesplinter Trogg", "Tinker's Sharpsword Oil", "Tinkertown Technician", "Velen's Chosen", "Warbot", "Whirling Zap-o-matic"]
+      gnomes_c = ["Annoy-o-Tron", "Anodized Robo Cub", "Antique Healbot", "Burly Rocw Trogg", "Clockwork Gnome", "Cobra Shot", "Cogmaster", "Crackle", "Darkbomb", "Druid of the Fang", "Explosive Sheep", "Flamecannon", "Floating Watcher", "Flying Machine", "Force-Tank MAX", "Gilblin Stalker", "Glaivezooka", "Gnomeregan Infantry", "Goblin Auto-Barber", "Lost Tallstrider", "Mechanical Yeti", "Mechwarper", "Micro Machine", "Ogre Brute", "Ogre Warmaul", "Piloted Shredder", "Puddlestomper", "Salty Dog", "Seal of Light", "Shielded Minibot", "Ship's Cannon", "Shrinkmeister", "Snowchugger", "Spider Tank", "Stonesplinter Trogg", "Tinker's Sharpsword Oil", "Tinkertown Technician", "Velen's Chosen", "Warbot", "Whirling Zap-o-matic"]
       
       grand_l = ["Acidmaw","Anub'arak","Aviana","Bolf Ramshield","Chillmaw","Confessor Paletress","Dreadscale", "Eadric the Pure", "Eydis Darkbane", "Fjola Lightbane", "Gormok the Impaler", "Icehowl", "Justicar Trueheart", "Nexus-Champion Saraad", "Rhonin", "Skycap'n Kragg", "The Mistcaller", "The Skeleton Knight", "Varian Wrynn", "Wilfred Fizzlebang"]
       grand_e = ["Arcane Blast","Astral Communion","Beneath the Grounds","Charged Hammer","Coldarra Drake","Confuse","Crowd Favorite","Dark Bargain","Dreadsteed","Elemental Destruction","Enter the Coliseum","Frost Giant","Garrison Commander","Grand Crusader","Kodorider","Lock and Load","Magnataur Alpha","Master of Ceremonies","Mulch","Mysterious Challenger","Poisoned Blade","Recruiter","Sea Reaver","Shadowfiend","Sideshow Spelleater","Stablemaster","Twilight Guardian"]
@@ -325,9 +325,9 @@ try:
             print(c.orange + 'Total Packs:        ' + str(total_p) + '  (Total Cards: ' + str(total_c) + ')')
             print(c.green + 'Total Money Spent: ' + '$' + str(cost))
             if cost == 0:
-              print(c.cyan + 'Total Dust: 0/$ (' + str(dust) + ' Total)')
+              print(c.cyan + 'Total Dust: 0/$ (' + str(dust) + ' Total, 0/pack)')
             else:
-              print(c.cyan + 'Total Dust: ' + str(round(dust/cost)) + '/$ (' + str(dust) + ' Total)')
+              print(c.cyan + 'Total Dust: ' + str(round(dust/cost)) + '/$ (' + str(dust) + ' Total, ' + str(dust/total_p) + '/pack)')
           countstat += 1
         print()
         if auto_left >= 1:
@@ -337,6 +337,7 @@ try:
           pack = pack_pref
         else:
           pack = input(c.base3+'>>> ').strip().lower()
+          pack = 'c'
         print(c.clear,end='')
         if pack == '<>debug numbers<>':
           cards_per_pack = int(input('Cards per pack.\n>>> '))
